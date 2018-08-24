@@ -16,7 +16,7 @@ public class UserAuthServiceImpl implements UserAuthService {
     private UserAuthDao userAuthDao;
 
     @Override
-    public User getUser(String username, String password) {
+    public User login(String username, String password) {
         User user = userAuthDao.getUser(username);
         if (user == null) {
             return null;
@@ -27,5 +27,21 @@ public class UserAuthServiceImpl implements UserAuthService {
         }
 
         return null;
+    }
+
+    @Override
+    public void register(String username, String password, String operator) {
+        User user = userAuthDao.getUser(username);
+        if (user != null) {
+            throw new RuntimeException("User already exists.");
+        }
+
+        password = DigestUtils.md5DigestAsHex(password.getBytes());
+        userAuthDao.register(username, password, operator);
+    }
+
+    @Override
+    public User getUser(String username) {
+        return userAuthDao.getUser(username);
     }
 }
