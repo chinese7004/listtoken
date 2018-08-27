@@ -1,6 +1,3 @@
 spring:
-  datasource:
-    url: jdbc:mysql://localhost/listtoken?useSSL=true
-    username: root
-    password: Hsshangde_2018
-    driver-class-name: com.mysql.jdbc.Driver
+  profiles:
+    active: dev

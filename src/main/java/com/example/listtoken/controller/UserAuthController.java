@@ -1,7 +1,6 @@
 package com.example.listtoken.controller;
 
 import com.alibaba.fastjson.JSONObject;
-import com.example.listtoken.constants.ApiConstants;
 import com.example.listtoken.entity.User;
 import com.example.listtoken.service.UserAuthService;
 import com.example.listtoken.utils.ApiMessageFormatUtil;

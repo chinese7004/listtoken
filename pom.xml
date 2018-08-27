@@ -24,6 +24,42 @@
         <java.version>10</java.version>
     </properties>
 
+    <profiles>
+        <profile>
+            <id>dev</id>
+            <properties>
+                <activatedProperties>dev</activatedProperties>
+            </properties>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+        </profile>
+        <profile>
+            <id>prod</id>
+            <properties>
+                <activatedProperties>prod</activatedProperties>
+            </properties>
+            <build>
+                <finalName>${project.artifactId}_${activatedProperties}_${maven.build.timestamp}</finalName>
+            </build>
+        </profile>
+        <profile>
+            <id>pre_prod</id>
+            <properties>
+                <activatedProperties>pre_prod</activatedProperties>
+            </properties>
+            <build>
+                <finalName>${project.artifactId}_${activatedProperties}_${maven.build.timestamp}</finalName>
+            </build>
+        </profile>
+        <profile>
+            <id>test</id>
+            <properties>
+                <activatedProperties>test</activatedProperties>
+            </properties>
+        </profile>
+    </profiles>
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
