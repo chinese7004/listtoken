@@ -42,4 +42,37 @@ public class ListtokenApplicationTests {
         System.out.println(JSON.toJSONString(tokenList));
     }
 
+    @Test
+    public void createTokenTest() {
+        Token token = new Token();
+        token.setCompanyId(1);
+        token.setName("testToken");
+        token.setSymbol("ea2");
+        token.setType("1");
+        tokenService.create(token, 2);
+    }
+
+    @Test
+    public void updateTokenTest() {
+        Token token = new Token();
+        token.setId(3);
+        token.setCompanyId(1);
+        token.setName("testToken");
+        token.setSymbol("ea2");
+        token.setType("1");
+        tokenService.update(token, 2);
+    }
+
+    @Test
+    public void deleteTokenTest() {
+        Integer id = 2;
+        tokenService.delete(id);
+    }
+
+    @Test
+    public void getTokenTest() {
+        Integer id = 3;
+        Token token = tokenService.get(id);
+        System.out.println(JSON.toJSONString(token));
+    }
 }
